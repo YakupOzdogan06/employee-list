@@ -1,0 +1,23 @@
+.button-div {
+  position: relative;
+}
+
+.previous {
+  background-color: aquamarine;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 1rem;
+  border-color: white;
+  position: absolute;
+  left: 3rem;
+}
+
+.next {
+  background-color: aquamarine;
+  padding: 10px 60px;
+  border-radius: 5px;
+  border-color: white;
+  margin: 1rem;
+  position: absolute;
+  right: 3rem;
+}

@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import Button from "./components/buttons/Button";
+import Cards from "./components/cards/Cards";
+import Header from "./components/header/Header";
+import { useState } from "react";
 
 function App() {
+  const [count, setCount] = useState(1);
+
+  const handleClick = (e) => {
+    if (e.target.value === "next") {
+      console.log("clicked");
+
+      if (count < 16) {
+        setCount((count) => count + 5);
+      } else {
+        setCount(1);
+      }
+    }
+    if (e.target.value === "previous") {
+      if (count > 1) {
+        setCount(count - 5);
+      } else {
+        setCount(16);
+      }
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="app-alt">
+        <Header count={count} />
+        <Cards count={count} />
+        <Button func={handleClick} />
+      </div>
     </div>
   );
 }
